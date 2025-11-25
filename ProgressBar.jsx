@@ -9,7 +9,6 @@ const ProgressBar = ({
   backgroundColor = "#eee",
   borderRadius = "8px",
   style = {},
-  element = "body",
 }) => {
   const [scrollValue, setScrollValue] = React.useState(0);
 
@@ -17,7 +16,7 @@ const ProgressBar = ({
     if (type !== "scroll") return;
 
     const handleScroll = () => {
-      const total = document.querySelector(element).scrollHeight - document.querySelector(element).clientHeight;
+      const total = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const progress = (window.scrollY / total) * 100;
       setScrollValue(progress);
     };
